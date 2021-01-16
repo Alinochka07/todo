@@ -13,3 +13,12 @@ def second(request):
 
 def third(request):
     return HttpResponse("This is page test 3")
+
+def task31(request):
+    return HttpResponse("Ваша запись была добавлена успешно.")
+
+def task31_2(request):
+    return HttpResponse("Ваша запись была изменена успешно.")
+
+def task31_3(request):
+    return HttpResponse("Ваша запись была удалена.")
