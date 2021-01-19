@@ -7,6 +7,10 @@
 </head>
 <body>
     <div><h2>Books. Task 32</h2></div>
-    {}
+    <h3>{% for books in books_list %}
+        {{ books.title }}
+        {{ books.genre }}
+        {{ books.author }}
+    {% endfor %}</h3>
 </body>
 </html>

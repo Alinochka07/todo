@@ -27,5 +27,6 @@ urlpatterns = [
     path("", homepage, name="home"),
     path("test/", test, name="test"),
     path("test2/", second),
+    # path("books", books, name="books"),
 ]   + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
     + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
