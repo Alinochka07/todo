@@ -17,6 +17,7 @@ section{
 }
 .create_input{
     padding: 8px 5px;
+    padding-left: 2px;
     font-size: 16px;
     width: 80%;
 }

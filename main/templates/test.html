@@ -16,11 +16,15 @@
     <section>
         <!-- First div, our input section -->
                 <div class="create_container">
-                    <input
-                    class="create_input"
-                    type="text"
-                    placeholder="Напишите сюда новую задачу">
-                    <button class="create_btn">Добавить</button>
+                    <form action="{% url 'add-todo' %}" method="POST">
+                        {% csrf_token %}
+                        <input
+                            class="create_input"
+                            type="text"
+                            placeholder="Напишите сюда новую задачу"
+                            name="todo_text"/>
+                        <button class="create_btn">Добавить</button>
+                    </form>
                 </div>
         <!-- Second div, contains all the boxes with content -->
                 <div class="todo_container">
