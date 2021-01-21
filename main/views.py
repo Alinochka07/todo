@@ -33,4 +33,9 @@ def books_new(request):
     todo.save()
     return redirect(books)
     # return HttpResponse("Form received")
+
+def delete_todo(request, id):
+    todo = Todo.objects.get(id=id)
+    todo.delete()
+    return redirect(test)
     
