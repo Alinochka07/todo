@@ -1,56 +1,58 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task32</title>
-    <link rel="stylesheet" href="{% static 'styles/index.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/index.css' %}" />
 </head>
 <body>
     <div><h2>Books. Task</h2></div>
-    <form action="{% url 'add-todo' %}" method="POST">
+    <div class="create_container">
+    <form action="{% url 'books_new' %}" method="POST">
             {% csrf_token %}
             <input 
             class="create_input"
             type="text"
             placeholder="Please write here the title of book"
-            name="book_title"/>
+            name="books_title"/>
 
             <input 
             class="create_input"
             type="text"
             placeholder="Subtitle"
-            name="book_subtitle"/>
+            name="books_subtitle"/>
 
             <input 
             class="create_input"
             type="text"
             placeholder="Description"
-            name="book_description"/>
+            name="books_description"/>
 
             <input 
             class="create_input"
             type="number"
             placeholder="Price"
-            name="book_price"/>
+            name="books_price"/>
 
             <input 
             class="create_input"
             type="text"
             placeholder="Genre"
-            name="book_genre"/>
+            name="books_genre"/>
 
             <input 
             class="create_input"
             type="text"
             placeholder="Author"
-            name="book_author"/>
+            name="books_author"/>
 
             <input 
             class="create_input"
             type="date"
             placeholder="Year"
-            name="book_year"/>
+            name="books_year"/>
 
         <button class="create_btn">Click to add</button>
         <h3>{% for books in books_list %}
@@ -64,5 +66,7 @@
             {{ books.date }}
         {% endfor %}</h3>
     </form>
+
+</div>
 </body>
 </html>
