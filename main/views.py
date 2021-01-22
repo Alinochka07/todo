@@ -98,12 +98,12 @@ def trash_books(request, id):
 
 def mark_books(request, id):
     books = Books.objects.get(id=id)
-    books.is_favorite = True
+    books.is_favorites = True
     books.save()
     return redirect(second)
     
 def unmark_books(request, id):
     books = Todo.objects.get(id=id)
-    books.is_favorite = False
+    books.is_favorites = False
     books.save()
     return redirect(second)

@@ -100,78 +100,54 @@
         <div class="todo_container">
         {% for books in books_list %}
             <div class="todo_item
-            {% if todo.is_favorite %}
+            {% if books.is_favorites %}
                 marked
             {% endif %}
         ">
             <div class="todo_item_header">
-                <label class="checkbox_container">
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-                <h4>{{ books.title }}</h4>
+               <h4 style="font-family: Arial, Helvetica, sans-serif; font-weight: bold;">Title:</h4>
+                <h4 style="padding-left: 10px; padding-bottom: 30px; flex-direction: column;">{{ books.title }}</h4>
             </div>
 
             <div class="todo_item_header">
-                <label class="checkbox_container">
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-                <h4>{{ books.subtitle }}</h4>
+                <h4 style="font-family: Arial, Helvetica, sans-serif; font-weight: bold;">Subtitle:</h4>
+                <h4 style="padding-left: 10px; padding-bottom: 30px; flex-direction: column;">{{ books.subtitle }}</h4>
             </div>
 
             <div class="todo_item_header">
-                <label class="checkbox_container">
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-                <h4>{{ books.description }}</h4>
+                <h4 style="font-family: Arial, Helvetica, sans-serif; font-weight: bold;">Description:</h4>
+                <h4 style="padding-left: 10px; padding-bottom: 30px; flex-direction: column;">{{ books.description }}</h4>
             </div>
             
             <div class="todo_item_header">
-                <label class="checkbox_container">
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-                <h4>{{ books.price }}</h4>
+                <h4 style="font-family: Arial, Helvetica, sans-serif; font-weight: bold;">Price:</h4>
+                <h4 style="padding-left: 10px; padding-bottom: 30px; flex-direction: column;">{{ books.price }}</h4>
             </div>
 
             <div class="todo_item_header">
-                <label class="checkbox_container">
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-                <h4>{{ books.genre }}</h4>
+                <h4 style="font-family: Arial, Helvetica, sans-serif; font-weight: bold;">Genre:</h4>
+                <h4 style="padding-left: 10px; padding-bottom: 30px; flex-direction: column;">{{ books.genre }}</h4>
             </div>
 
             <div class="todo_item_header">
-                <label class="checkbox_container">
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-                <h4>{{ books.author }}</h4>
+                <h4 style="font-family: Arial, Helvetica, sans-serif; font-weight: bold;">Author:</h4>
+                <h4 style="padding-left: 10px; padding-bottom: 30px; flex-direction: column;">{{ books.author }}</h4>
             </div>
 
             <div class="todo_item_header">
-                <label class="checkbox_container">
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-                <h4>{{ books.year }}</h4>
+                <h4 style="font-family: Arial, Helvetica, sans-serif; font-weight: bold;">Publishing year:</h4>
+                <h4 style="padding-left: 10px; padding-bottom: 30px; flex-direction: column;">{{ books.year }}</h4>
             </div>
 
             <div class="todo_item_header">
-                <label class="checkbox_container">
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-                <h4> {{ books.date }}</h4>
+                <h4 style="font-family: Arial, Helvetica, sans-serif; font-weight: bold;">Date of addition:</h4>
+                <h4 style="padding-left: 10px; padding-bottom: 30px; flex-direction: column;"> {{ books.date }}</h4>
             </div>
 
             <div class="todo_item_footer">
-                <p>{{ books.created_at }}</p>
+                <!-- <p>{{ books.created_at }}</p> -->
                 <div class="action_button">
-                    {% if books.is_favorite %}
+                    {% if books.is_favorites %}
                         <a href="{% url 'unmark-books' books.id %}"><img src="{% static './icons/marked.png' %}"></a>
                     {% else %}
                         <a href="{% url 'mark-books' books.id %}"><img src="{% static './icons/unmarked.png' %}"></a>
