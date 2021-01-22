@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponse, redirect
 from .models import Todo
 from .models import Books
-from .models import Price
+
 
 
 
@@ -31,35 +31,40 @@ def books_new(request):
     books_title = Books(title=title)
     books_title.save()
 
+    form = request.POST
     subtitle = form["books_subtitle"] 
     books_subtitle = Books(subtitle=subtitle)
     books_subtitle.save()
 
+    form = request.POST
     description = form["books_description"]
     books_description = Books(description=description)
     books_description.save()
 
+    form = request.POST
     genre = form["books_genre"] 
     books_genre = Books(genre=genre)
     books_genre.save()
 
+    form = request.POST
     author = form["books_author"]
     books_author = Books(author=author)
     books_author.save()
 
+    form = request.POST
     cost_amount = form["books_price"]
-    currency = form["books_price"]
-    books_price = Price(cost_amount=cost_amount, currency=currency)
+    books_price = Books(cost_amount=cost_amount)
     books_price.save()
 
+    form = request.POST
     year = form["books_year"]
     books_year = Books(year=year)
     books_year.save()
 
+    form = request.POST
     date = form["books_date"]
     books_date = Books(date=date)
     books_date.save()
-    # todo = Books(title=title, subtitle=subtitle, description=description, genre=genre, author=author, price=price, year=year, date=date)
     books_date.save()
     return redirect(second)
     # return HttpResponse("Form received")
@@ -84,3 +89,21 @@ def unmark_todo(request, id):
     todo.save()
     return redirect(test)
 
+# TASK MARK
+
+def trash_books(request, id):
+    books = Books.objects.get(id=id)
+    books.delete()
+    return redirect(second)
+
+def mark_books(request, id):
+    books = Books.objects.get(id=id)
+    books.is_favorite = True
+    books.save()
+    return redirect(second)
+    
+def unmark_books(request, id):
+    books = Todo.objects.get(id=id)
+    books.is_favorite = False
+    books.save()
+    return redirect(second)

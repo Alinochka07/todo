@@ -6,74 +6,187 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Books</title>
     <link rel="stylesheet" href="{% static 'styles/index.css' %}" />
+    <link rel="stylesheet" href="{% static 'styles/checkbox.css' %}"/>
 </head>
 <body>
     <div><h4 style="color: rgb(15, 66, 94); padding-left: 15px; font-size: 30px; font-family: Arial, Helvetica, sans-serif;" class="todo_item_header">Books. Task</h4></div>
     <div class="create_container">
     <section>
-        <form action="{% url 'books-new' %}" method="POST">
-            {% csrf_token %}
-            <h3 style="color: rgb(15, 66, 94); font-family: Arial, Helvetica, sans-serif;">Please fill all forms and click the button to add</h3>
-            <input 
-                class="create_input"
-                type="text"
-                placeholder="Title"
-                name="books_title"/>
+        <div class="create_container">
+            <form action="{% url 'books-new' %}" method="POST">
+                {% csrf_token %}
+                <h3 style="color: rgb(15, 66, 94); font-family: Arial, Helvetica, sans-serif;">Please fill all forms and click the button to add</h3>
+                <input 
+                    class="create_input"
+                    type="text"
+                    placeholder="Title"
+                    name="books_title"/>
+            </form>
+        </div>
+        
+        <div class="create_container">
+            <form action="{% url 'books-new' %}" method="POST">
+                <input 
+                    class="create_input"
+                    type="text"
+                    placeholder="Subtitle"
+                    name="books_subtitle"/>
+        </form>
+        </div> 
             
-            <input 
-                class="create_input"
-                type="text"
-                placeholder="Subtitle"
-                name="books_subtitle"/>
+        <div class="create_container">
+            <form action="{% url 'books-new' %}" method="POST">
+                <input 
+                    class="create_input"
+                    type="text"
+                    placeholder="Description"
+                    name="books_description"/>
+            </form>
+        </div>
 
-            <input 
-                class="create_input"
-                type="text"
-                placeholder="Description"
-                name="books_description"/>
+        <div class="create_container">
+            <form action="{% url 'books-new' %}" method="POST">
+                <input 
+                    class="create_input"
+                    type="text"
+                    placeholder="Price in KGS"
+                    name="books_price"/>
+            </form>
+        </div>
 
-            <input 
-                class="create_input"
-                type="text"
-                placeholder="Price in KGS"
-                name="books_price"/>
+        <div class="create_container">
+            <form action="{% url 'books-new' %}" method="POST">
+                <input 
+                    class="create_input"
+                    type="text"
+                    placeholder="Genre"
+                    name="books_genre"/>
+            </form>
+        </div>
 
-            <input 
-                class="create_input"
-                type="text"
-                placeholder="Genre"
-                name="books_genre"/>
+        <div class="create_container">
+            <form action="{% url 'books-new' %}" method="POST">
+                <input 
+                    class="create_input"
+                    type="text"
+                    placeholder="Author"
+                    name="books_author"/>
+            </form>
+        </div>
 
-            <input 
-                class="create_input"
-                type="text"
-                placeholder="Author"
-                name="books_author"/>
+        <div class="create_container">
+            <form action="{% url 'books-new' %}" method="POST">
+                <input 
+                    class="create_input"
+                    type="text"
+                    placeholder="Year"
+                    name="books_year"/>
+            </form>
+        </div>
 
-            <input 
-                class="create_input"
-                type="text"
-                placeholder="Year"
-                name="books_year"/>
-
-            <input 
-                class="create_input"
-                type="datetime"
-                placeholder="Date of adding"
-                name="books_date"/>
-
+        <div class="create_container">
+            <form action="{% url 'books-new' %}" method="POST">
+                <input 
+                    class="create_input"
+                    type="datetime"
+                    placeholder="Date of adding"
+                    name="books_date"/>
+            </form>
+        </div>
+            
         <button class="create_btn">Click to add</button>
-        <h3>{% for books in books_list %}
-            {{ books.title }}
-            {{ books.subtitle }}
-            {{ books.description }}
-            {{ books.price }}
-            {{ books.genre }}
-            {{ books.author }}
-            {{ books.year }}
-            {{ books.date }}
-        {% endfor %}</h3>
-    </form>
+       
+
+        <div class="todo_container">
+        {% for books in books_list %}
+            <div class="todo_item
+            {% if todo.is_favorite %}
+                marked
+            {% endif %}
+        ">
+            <div class="todo_item_header">
+                <label class="checkbox_container">
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <h4>{{ books.title }}</h4>
+            </div>
+
+            <div class="todo_item_header">
+                <label class="checkbox_container">
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <h4>{{ books.subtitle }}</h4>
+            </div>
+
+            <div class="todo_item_header">
+                <label class="checkbox_container">
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <h4>{{ books.description }}</h4>
+            </div>
+            
+            <div class="todo_item_header">
+                <label class="checkbox_container">
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <h4>{{ books.price }}</h4>
+            </div>
+
+            <div class="todo_item_header">
+                <label class="checkbox_container">
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <h4>{{ books.genre }}</h4>
+            </div>
+
+            <div class="todo_item_header">
+                <label class="checkbox_container">
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <h4>{{ books.author }}</h4>
+            </div>
+
+            <div class="todo_item_header">
+                <label class="checkbox_container">
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <h4>{{ books.year }}</h4>
+            </div>
+
+            <div class="todo_item_header">
+                <label class="checkbox_container">
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <h4> {{ books.date }}</h4>
+            </div>
+
+            <div class="todo_item_footer">
+                <p>{{ books.created_at }}</p>
+                <div class="action_button">
+                    {% if books.is_favorite %}
+                        <a href="{% url 'unmark-books' books.id %}"><img src="{% static './icons/marked.png' %}"></a>
+                    {% else %}
+                        <a href="{% url 'mark-books' books.id %}"><img src="{% static './icons/unmarked.png' %}"></a>
+                    {% endif %}
+
+                    <a href="{% url 'trash-books' books.id %}"><img src="{% static './icons/trash.png' %}"></a>
+                
+                </div>
+            </div>
+            
+            
+        </div>
+           
+        {% endfor %}
+    
     </section>
 
 </div>
