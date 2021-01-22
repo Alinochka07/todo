@@ -4,55 +4,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task32</title>
+    <title>Books</title>
     <link rel="stylesheet" href="{% static 'styles/index.css' %}" />
 </head>
 <body>
-    <div><h2>Books. Task</h2></div>
+    <div><h4 style="color: rgb(15, 66, 94); padding-left: 15px; font-size: 30px; font-family: Arial, Helvetica, sans-serif;" class="todo_item_header">Books. Task</h4></div>
     <div class="create_container">
-    <form action="{% url 'books_new' %}" method="POST">
+    <section>
+        <form action="{% url 'books-new' %}" method="POST">
             {% csrf_token %}
+            <h3 style="color: rgb(15, 66, 94); font-family: Arial, Helvetica, sans-serif;">Please fill all forms and click the button to add</h3>
             <input 
-            class="create_input"
-            type="text"
-            placeholder="Please write here the title of book"
-            name="books_title"/>
+                class="create_input"
+                type="text"
+                placeholder="Title"
+                name="books_title"/>
+            
+            <input 
+                class="create_input"
+                type="text"
+                placeholder="Subtitle"
+                name="books_subtitle"/>
 
             <input 
-            class="create_input"
-            type="text"
-            placeholder="Subtitle"
-            name="books_subtitle"/>
+                class="create_input"
+                type="text"
+                placeholder="Description"
+                name="books_description"/>
 
             <input 
-            class="create_input"
-            type="text"
-            placeholder="Description"
-            name="books_description"/>
+                class="create_input"
+                type="text"
+                placeholder="Price in KGS"
+                name="books_price"/>
 
             <input 
-            class="create_input"
-            type="number"
-            placeholder="Price"
-            name="books_price"/>
+                class="create_input"
+                type="text"
+                placeholder="Genre"
+                name="books_genre"/>
 
             <input 
-            class="create_input"
-            type="text"
-            placeholder="Genre"
-            name="books_genre"/>
+                class="create_input"
+                type="text"
+                placeholder="Author"
+                name="books_author"/>
 
             <input 
-            class="create_input"
-            type="text"
-            placeholder="Author"
-            name="books_author"/>
+                class="create_input"
+                type="text"
+                placeholder="Year"
+                name="books_year"/>
 
             <input 
-            class="create_input"
-            type="date"
-            placeholder="Year"
-            name="books_year"/>
+                class="create_input"
+                type="datetime"
+                placeholder="Date of adding"
+                name="books_date"/>
 
         <button class="create_btn">Click to add</button>
         <h3>{% for books in books_list %}
@@ -66,6 +74,7 @@
             {{ books.date }}
         {% endfor %}</h3>
     </form>
+    </section>
 
 </div>
 </body>

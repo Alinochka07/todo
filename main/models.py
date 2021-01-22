@@ -1,4 +1,5 @@
 from django.db import models
+from django_prices.models import MoneyField
 
 
 class Todo(models.Model):
@@ -10,9 +11,13 @@ class Todo(models.Model):
 class Books(models.Model):
     title = models.CharField(max_length=100)
     subtitle = models.CharField(max_length=100)
-    description = models.TextField()
-    price = models.FloatField()
+    description = models.TextField(max_length=300)
     genre = models.CharField(max_length=50)
     author = models.CharField(max_length=100)
-    year = models.IntegerField()
-    date = models.DateField(auto_now_add=True)
+    year = models.CharField(max_length=100)
+    date = models.DateTimeField(auto_now_add=True)
+
+class Price(models.Model):
+    currency = models.CharField(max_length=3, default="KGS")
+    cost_amount = models.CharField(max_length=100)
+    
