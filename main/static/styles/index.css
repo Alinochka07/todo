@@ -17,41 +17,40 @@ section{
 }
 .create_input{
     padding: 8px 5px;
-    padding-left: 2px;
     font-size: 16px;
     width: 80%;
 }
 .create_btn{
-    padding: 8px 20px;
+    padding: 12px 20px;
     background-color: rgb(15, 136, 136);
+    border: 1px solid rgb(94, 92, 92);
     color: white;
     font-size: 16px;
-    border: 1px solid rgb(94, 92, 92);
-    border-radius: 7px;
     text-transform: capitalize;
     font-weight: normal;
+    border-radius: 4px;
     font-family: Arial, Helvetica, sans-serif;
     cursor: pointer;
 }
-.create_btn :active{
+.create_btn:active{
     border:1px solid rgb(94, 92, 92);
     box-shadow: 2px 2px 5px 3px rgb(0, 7, 7);
-    border-radius: 7px;
+    border-radius: 4px;
 }
 
 .todo_container{
     padding: 30px 20px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     flex-wrap: wrap;
     width: 100%;
-    box-sizing: border-box;
-    align-items: flex-start;
+    /* box-sizing: border-box;
+    align-items: flex-start; */
 }
-/* boxes... */
+/* items... */
 
 .todo_item{
-    border: 1px solid rgb(6, 100, 100);
+    border: 1px solid gray;
     border-radius: 5px;
     width: 24%;
     padding: 10px 15px;
