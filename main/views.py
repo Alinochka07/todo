@@ -27,47 +27,20 @@ def add_todo(request):
 # TASK 
 def books_new(request):
     form = request.POST
-    title = form["books_title"]
-    books_title = Books(title=title)
-    books_title.save()
-
-    form = request.POST
-    subtitle = form["books_subtitle"] 
-    books_subtitle = Books(subtitle=subtitle)
-    books_subtitle.save()
-
-    form = request.POST
-    description = form["books_description"]
-    books_description = Books(description=description)
-    books_description.save()
-
-    form = request.POST
-    genre = form["books_genre"] 
-    books_genre = Books(genre=genre)
-    books_genre.save()
-
-    form = request.POST
-    author = form["books_author"]
-    books_author = Books(author=author)
-    books_author.save()
-
-    form = request.POST
-    cost_amount = form["books_price"]
-    books_price = Books(cost_amount=cost_amount)
-    books_price.save()
-
-    form = request.POST
-    year = form["books_year"]
-    books_year = Books(year=year)
-    books_year.save()
-
-    form = request.POST
-    date = form["books_date"]
-    books_date = Books(date=date)
-    books_date.save()
-    books_date.save()
+    book = Book(
+        title = form["books_title"],
+        subtitle = form["books_subtitle"],
+        description = form["books_description"],
+        genre = form["books_genre"],
+        author = form["books_author"],
+        price = form["books_price"],
+        year = form["books_year"],
+        date = form["books_date"]
+    )
+    
+    book.save()
     return redirect(second)
-    # return HttpResponse("Form received")
+
 
 
 
