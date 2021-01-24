@@ -6,165 +6,152 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Books</title>
     <link rel="stylesheet" href="{% static 'styles/index.css' %}" />
-    <link rel="stylesheet" href="{% static 'styles/checkbox.css' %}"/>
+
 </head>
+
+
 <body>
-    <div><h4 style="color: rgb(15, 66, 94); padding-left: 15px; font-size: 30px; font-family: Arial, Helvetica, sans-serif;" class="todo_item_header">Books. Task</h4></div>
-    <div class="create_container">
     <section>
-        <div class="create_container">
-            <form action="{% url 'books-new' %}" method="POST">
+    <div>
+        <h4 style="color: rgb(15, 66, 94); font-size: 30px; font-family: Arial, Helvetica, sans-serif; text-align: center;" class="todo_item_header">Bookshop</h4>
+        <p style="color: rgb(15, 66, 94); font-size: 15px; font-family: Arial, Helvetica, sans-serif; text-align: center;" class="todo_item_header">Fill in the form to add a new book</p>
+    </div>
+    
+    <div class="create_container">
+    
+            <form action="{% url 'add-book' %}" method="POST">
                 {% csrf_token %}
-                <h3 style="color: rgb(15, 66, 94); font-family: Arial, Helvetica, sans-serif;">Please fill all forms and click the button to add</h3>
                 <input 
                     class="create_input"
+                    style="color: black;"
                     type="text"
                     placeholder="Title"
-                    name="books_title"/>
-            </form>
-        </div>
-        
-        <div class="create_container">
-            <form action="{% url 'books-new' %}" method="POST">
+                    name="books_title"/><br><br>
+            
                 <input 
                     class="create_input"
+                    style="color: black;"
                     type="text"
                     placeholder="Subtitle"
-                    name="books_subtitle"/>
-        </form>
-        </div> 
-            
-        <div class="create_container">
-            <form action="{% url 'books-new' %}" method="POST">
+                    name="books_subtitle"/><br><br>
+       
                 <input 
                     class="create_input"
+                    style="color: black;"
                     type="text"
                     placeholder="Description"
-                    name="books_description"/>
-            </form>
-        </div>
-
-        <div class="create_container">
-            <form action="{% url 'books-new' %}" method="POST">
+                    name="books_description"/><br><br>
+        
                 <input 
                     class="create_input"
-                    type="text"
+                    style="color: black;"
+                    type="number"
                     placeholder="Price in KGS"
-                    name="books_price"/>
-            </form>
-        </div>
-
-        <div class="create_container">
-            <form action="{% url 'books-new' %}" method="POST">
+                    name="books_price"/><br><br>
+      
                 <input 
                     class="create_input"
+                    style="color: black;"
                     type="text"
                     placeholder="Genre"
-                    name="books_genre"/>
-            </form>
-        </div>
+                    name="books_genre"/><br><br>
 
-        <div class="create_container">
-            <form action="{% url 'books-new' %}" method="POST">
                 <input 
                     class="create_input"
+                    style="color: black;"
                     type="text"
                     placeholder="Author"
-                    name="books_author"/>
-            </form>
-        </div>
+                    name="books_author"/><br><br>
 
-        <div class="create_container">
-            <form action="{% url 'books-new' %}" method="POST">
                 <input 
                     class="create_input"
-                    type="text"
+                    style="color: black;"
+                    type="number"
                     placeholder="Year"
-                    name="books_year"/>
-            </form>
-        </div>
+                    name="books_year"/><br><br>
 
-        <div class="create_container">
-            <form action="{% url 'books-new' %}" method="POST">
                 <input 
                     class="create_input"
-                    type="datetime"
+                    style="color: black;"
+                    type="datetime-local"
                     placeholder="Date of adding"
-                    name="books_date"/>
+                    name="books_date"/><br><br>
+                    
+                <button style="background-color: rgb(5, 41, 104);" class="create_btn">Click to add</button>
+
             </form>
-        </div>
-            
-        <button class="create_btn">Click to add</button>
+    </div>
        
 
         <div class="todo_container">
-        {% for books in books_list %}
+
+            {% for book in bookshop_list %}
             <div class="todo_item
-            {% if books.is_favorites %}
-                marked
-            {% endif %}
-        ">
-            <div class="todo_item_header">
-               <h4 style="font-family: Arial, Helvetica, sans-serif; font-weight: bold;">Title:</h4>
-                <h4 style="padding-left: 10px; padding-bottom: 30px; flex-direction: column;">{{ books.title }}</h4>
-            </div>
+                {% if book.is_favorites %}
+                    marked
+                {% endif %}
+            ">
 
-            <div class="todo_item_header">
-                <h4 style="font-family: Arial, Helvetica, sans-serif; font-weight: bold;">Subtitle:</h4>
-                <h4 style="padding-left: 10px; padding-bottom: 30px; flex-direction: column;">{{ books.subtitle }}</h4>
-            </div>
 
-            <div class="todo_item_header">
-                <h4 style="font-family: Arial, Helvetica, sans-serif; font-weight: bold;">Description:</h4>
-                <h4 style="padding-left: 10px; padding-bottom: 30px; flex-direction: column;">{{ books.description }}</h4>
+                    <div class="todo_item_header">
+                    <h4 style="font-family: Arial, Helvetica, sans-serif; font-weight: bold;">Title:</h4>
+                    <h4 style="padding-left: 5px; padding-bottom: 10px; flex-direction: column;">{{ book.title }}</h4>
+                    </div>
+
+                    <div class="todo_item_header">
+                        <h4 style="font-family: Arial, Helvetica, sans-serif; font-weight: bold;">Subtitle:</h4>
+                        <h4 style="padding-left: 5px; padding-bottom: 10px; flex-direction: column;">{{ book.subtitle }}</h4>
+                    </div>
+
+                    <div class="todo_item_header">
+                        <h4 style="font-family: Arial, Helvetica, sans-serif; font-weight: bold;">Description:</h4>
+                        <h4 style="padding-left: 5px; padding-bottom: 10px; flex-direction: column;">{{ book.description }}</h4>
+                    </div>
+            
+                    <div class="todo_item_header">
+                        <h4 style="font-family: Arial, Helvetica, sans-serif; font-weight: bold;">Price:</h4>
+                        <h4 style="padding-left: 5px; padding-bottom: 10px; flex-direction: column;">{{ book.price }}</h4>
+                    </div>
+
+                    <div class="todo_item_header">
+                        <h4 style="font-family: Arial, Helvetica, sans-serif; font-weight: bold;">Genre:</h4>
+                        <h4 style="padding-left: 5px; padding-bottom: 10px; flex-direction: column;">{{ book.genre }}</h4>
+                    </div>
+
+                    <div class="todo_item_header">
+                        <h4 style="font-family: Arial, Helvetica, sans-serif; font-weight: bold;">Author:</h4>
+                        <h4 style="padding-left: 5px; padding-bottom: 10px; flex-direction: column;">{{ book.author }}</h4>
+                    </div>
+
+                    <div class="todo_item_header">
+                        <h4 style="font-family: Arial, Helvetica, sans-serif; font-weight: bold;">Publishing year:</h4>
+                        <h4 style="padding-left: 5px; padding-bottom: 10px; flex-direction: column;">{{ book.year }}</h4>
+                    </div>
+
+                    <div class="todo_item_header">
+                        <h4 style="font-family: Arial, Helvetica, sans-serif; font-weight: bold;">Date of addition:</h4>
+                        <h4 style="padding-left: 5px; padding-bottom: 10px; flex-direction: column;"> {{ book.books_date }}</h4>
+                    </div>
+
+         
+                    <div class="action_button">
+                        {% if book.is_favorites %}
+                            <a href="{% url 'unmark-books' book.id %}"><img src="{% static './icons/marked.png' %}"></a>
+                        {% else %}
+                            <a href="{% url 'mark-books' book.id %}"><img src="{% static './icons/unmarked.png' %}"></a>
+                        {% endif %}
+
+                        <a href="{% url 'trash-books' book.id %}"><img src="{% static './icons/trash.png' %}"></a>
+                    
+                    </div>
             </div>
             
-            <div class="todo_item_header">
-                <h4 style="font-family: Arial, Helvetica, sans-serif; font-weight: bold;">Price:</h4>
-                <h4 style="padding-left: 10px; padding-bottom: 30px; flex-direction: column;">{{ books.price }}</h4>
-            </div>
-
-            <div class="todo_item_header">
-                <h4 style="font-family: Arial, Helvetica, sans-serif; font-weight: bold;">Genre:</h4>
-                <h4 style="padding-left: 10px; padding-bottom: 30px; flex-direction: column;">{{ books.genre }}</h4>
-            </div>
-
-            <div class="todo_item_header">
-                <h4 style="font-family: Arial, Helvetica, sans-serif; font-weight: bold;">Author:</h4>
-                <h4 style="padding-left: 10px; padding-bottom: 30px; flex-direction: column;">{{ books.author }}</h4>
-            </div>
-
-            <div class="todo_item_header">
-                <h4 style="font-family: Arial, Helvetica, sans-serif; font-weight: bold;">Publishing year:</h4>
-                <h4 style="padding-left: 10px; padding-bottom: 30px; flex-direction: column;">{{ books.year }}</h4>
-            </div>
-
-            <div class="todo_item_header">
-                <h4 style="font-family: Arial, Helvetica, sans-serif; font-weight: bold;">Date of addition:</h4>
-                <h4 style="padding-left: 10px; padding-bottom: 30px; flex-direction: column;"> {{ books.date }}</h4>
-            </div>
-
-            <div class="todo_item_footer">
-                <!-- <p>{{ books.created_at }}</p> -->
-                <div class="action_button">
-                    {% if books.is_favorites %}
-                        <a href="{% url 'unmark-books' books.id %}"><img src="{% static './icons/marked.png' %}"></a>
-                    {% else %}
-                        <a href="{% url 'mark-books' books.id %}"><img src="{% static './icons/unmarked.png' %}"></a>
-                    {% endif %}
-
-                    <a href="{% url 'trash-books' books.id %}"><img src="{% static './icons/trash.png' %}"></a>
-                
-                </div>
-            </div>
-            
-            
+            {% endfor %}
         </div>
            
-        {% endfor %}
+        
     
     </section>
 
-</div>
 </body>
 </html>

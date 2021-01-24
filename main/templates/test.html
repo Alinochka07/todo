@@ -26,6 +26,11 @@
                         <button class="create_btn">Добавить</button>
                     </form>
                 </div>
+
+
+
+
+
         <!-- Second div, contains all the boxes with content -->
                 <div class="todo_container">
 
@@ -37,6 +42,8 @@
                             done
                         {% endif %}
                     ">
+
+
                         <div class="todo_item_header">
                             <label class="checkbox_container">
                                 <input type="checkbox"
@@ -47,8 +54,11 @@
                             </label>
                             <h4><a href="{% url 'close-todo' todo.id %}">{{ todo.text }}</a></h4>
                         </div>
+
+                        
                         <div class="todo_item_footer">
                             <p>{{ todo.created_at }}</p>
+                            
                             <div class="action_button">
                                 {% if todo.is_favorite %}
                                     <a href="{% url 'unmark-todo' todo.id %}"><img src="{% static './icons/marked.png' %}"></a>

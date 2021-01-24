@@ -1,11 +1,11 @@
 from django.contrib import admin
 from .models import Todo
-from .models import Books
+from .models import BookShop
 
 
 
 admin.site.register(Todo)
-admin.site.register(Books)
+admin.site.register(BookShop)
 
 
 
